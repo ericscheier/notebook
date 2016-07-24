@@ -1,0 +1,1 @@
+[dr_stub file="stockreport_1.Rmd" fields = "symbol, log_transform, datafile, datafile2" field_type = "text, radio, upload, upload" field_display = "Stock Symbol, Tranformation|Untransformed|Log-transformed|Very-transformed|log-log-transformed, Input Data|csv,  Input Data 2|csv|fwf|jpeg" defaults = "SPY, Untransformed, placeholder, placeholder"]

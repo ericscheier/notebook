@@ -1,0 +1,49 @@
+---
+title: "Daily Stock Report: `r form_fields[1]`"
+author: "bethesda.io"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: pdf_document
+documentclass: article
+---
+
+Writing my plain text here.
+
+`r ### You will be using the preapproval tag in your developer hub`
+`r #Your pre-approval tag`
+
+`r # make sure to name chunks, as I did here "somechunk"`
+`r # echo = FALSE will be standard to avoid outputting code to the document`
+`r # echo = TRUE can be useful for debugging`
+
+```{r somechunk, echo = FALSE}
+
+# The first form input is form_fields[1], the second is form_fields[2], etc.
+
+# Text input gives the string as input (alphanumeric and hyphens only)
+sym <- 'SPY'# form_fields[1]
+
+# Radio input returns the literal string value of the radio button selected
+print(form_fields[2])
+
+# Supress package startup for clearer documents
+suppressPackageStartupMessages(require(data.table))
+
+# ignore this, I have stored some functions server side
+# if you would like to fetch stock data, go ahead and pass 
+# stock symbols to this function
+source("functions/yahoo.R")
+Y <- yahoo(sym)
+if(is.null(hist)) stop("Stock symbol not found.")
+
+print(
+plot(Y[["Open"]], main = paste0(sym, " Historical Closing Price"), type='l',
+ xlab = "", ylab = "")
+)
+
+# "upload" inputs return a file path to form_fields[n]
+read.csv(form_fields[3])
+
+ASDF <- read.table(form_fields[4])
+
+
+```
