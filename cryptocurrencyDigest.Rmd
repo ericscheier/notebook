@@ -114,8 +114,10 @@ The prices below are all in terms of how much of that currency can be purchased 
 
 ```{r}
 # load and combine price data
-pairs <- c("BTC_BTS", "BTC_CLAM", "BTC_DASH", "BTC_DOGE", "BTC_ETH", "BTC_FCT"
+margin.pairs <- c("BTC_BTS", "BTC_CLAM", "BTC_DASH", "BTC_DOGE", "BTC_ETH", "BTC_FCT"
                        , "BTC_LTC", "BTC_MAID", "BTC_STR", "BTC_XMR", "BTC_XRP")
+
+pairs <- c("USDT_BTC","USDT_ETH", "USDT_DASH", "USDT_LTC", "USDT_NXT", "USDT_STR", "USDT_XMR", "USDT_XRP")
 poloniex.data <- do.call(merge, lapply(pairs, getPoloniexData))
 
 polo.returns <- na.omit(Return.calculate(poloniex.data))
