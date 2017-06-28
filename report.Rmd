@@ -1,0 +1,21 @@
+---
+title: "Survey Report"
+params:
+  n: 0
+  q: 0
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+`r params$n` and `r params$q`
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+```{r cars}
+plot(cars[sample(nrow(cars), params$n), ])
+plot(cars[sample(nrow(cars), params$q), ])
+```
